@@ -1,0 +1,23 @@
+{
+  "GoogleSearchTests": [
+    {
+      "query": "Playwright",
+      "expectedResult": "Playwright"
+    },
+    {
+      "query": "Playwright Test Runner",
+      "expectedResult": "Playwright Test Runner"
+    }
+  ],
+
+  "GoogleSearchTests2": [
+    {
+      "query": "Selenium",
+      "expectedResult": "Selenium"
+    },
+    {
+      "query": "TestNG",
+      "expectedResult": "TestNG"
+    }
+  ]
+}
