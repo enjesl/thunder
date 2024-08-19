@@ -1,5 +1,5 @@
 import { defineConfig } from '@playwright/test';
-import { generateReport } from './Utils/reportHelper';
+import { generateReport } from './utils/reportHelper';
 
 export default defineConfig({
   projects: [
@@ -10,7 +10,7 @@ export default defineConfig({
     }
   ],
   reporter: [
-    ['html', { outputFolder: generateReport('Report') }]
+    ['html', { outputFolder: generateReport('report') }]
   ],
   use: {
     browserName: 'chromium',

@@ -1,10 +1,10 @@
 import { test } from '@playwright/test';
-import { GoogleSearchPage } from '../Pages/googleSearchPage';
-import { launchBrowser, closeBrowser } from '../Utils/browserUtils';
-import { readJsonFile } from '../Utils/fileUtils';
-import { navigateToUrl } from '../Utils/navigationUtils';
+import { GoogleSearchPage } from '../pages/googleSearchPage';
+import { launchBrowser, closeBrowser } from '../utils/browserUtils';
+import { readJsonFile } from '../utils/fileUtils';
+import { navigateToUrl } from '../utils/navigationUtils';
 
-const data = readJsonFile('../DataTables/datatables.json');
+const data = readJsonFile('../data/datatables.json');
 
 test.describe('Google Search Test Suite', () => {
   for (const [index, searchData] of data.GoogleSearchTests.entries()) {
