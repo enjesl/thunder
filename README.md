@@ -10,7 +10,7 @@ Welcome to the Thunder Playwright Test Framework! Follow these steps to set up t
 
 Ensure you have the following installed:
 
-- [Node.js](https://nodejs.org/) (version 12.0.0 or higher)
+- [Node.js](https://nodejs.org/) (version 18.0.0 or higher)
 - [npm](https://www.npmjs.com/) (comes with Node.js)
 
 Check installations with:
