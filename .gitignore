@@ -1,3 +1,5 @@
 report/
 test-results/
 node_modules/
+allure-report/
+allure-results/
