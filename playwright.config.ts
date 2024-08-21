@@ -1,5 +1,4 @@
 import { defineConfig } from '@playwright/test';
-import { generateReport } from './utils/reportHelper';
 
 export default defineConfig({
   projects: [
@@ -9,11 +8,19 @@ export default defineConfig({
       testMatch: ['**/*.ts']
     }
   ],
+  fullyParallel: true,
   reporter: [
-    ['html', { outputFolder: generateReport('report') }]
+    ['list'],
+    ['html', { outputFolder: 'test-results/html-report' }],
+    ['allure-playwright'],
   ],
+  outputDir: 'test-results/raw',
   use: {
     browserName: 'chromium',
-    headless: false
+    headless: false,
+    viewport: null,
+    video:  'on',
+    screenshot: 'only-on-failure',
   }
+
 });

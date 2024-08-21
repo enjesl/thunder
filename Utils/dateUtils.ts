@@ -1,4 +1,3 @@
 export function formatDate(date: Date): string {
-    return date.toISOString().replace(/[:.]/g, '-');
-  }
-  
+  return date.toISOString().replace(/:/g, '-').replace(/\./g, '-');
+}

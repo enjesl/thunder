@@ -1,28 +1,25 @@
-// Pages/basePage.ts
 import { Page } from '@playwright/test';
+import { takeScreenshot } from '../utils/screenshotUtils';
 
 export class BasePage {
-  protected page: Page;
+  page: Page;
 
   constructor(page: Page) {
     this.page = page;
   }
 
-  async click(selector: string) {
-    await this.page.click(selector);
-    const base64Screenshot = await this.takeScreenshot();
-    console.log(`Screenshot for click on ${selector}: <img src="data:image/png;base64,{{base64Screenshot}}" alt="Screenshot">`);
-
-  }
-
-  async enterText(selector: string, text: string) {
+  async enterText(selector: string, text: string): Promise<void> {
     await this.page.fill(selector, text);
-    const base64Screenshot = await this.takeScreenshot();
-    console.log(`Screenshot for entering text in ${selector}: ${base64Screenshot}`);
+    await takeScreenshot(this.page, `enterText-${selector.replace(/[^a-zA-Z0-9]/g, '_')}-${Date.now()}.png`);
   }
 
-  protected async takeScreenshot(): Promise<string> {
-    const buffer = await this.page.screenshot();
-    return buffer.toString('base64');
+  
+  async click(selector: string): Promise<void> {
+    await this.page.click(selector);
+    await takeScreenshot(this.page, `click-${selector.replace(/[^a-zA-Z0-9]/g, '_')}-${Date.now()}.png`);
+  }
+
+  async takeScreenshot(fileName: string): Promise<void> {
+    await takeScreenshot(this.page, fileName);
   }
 }

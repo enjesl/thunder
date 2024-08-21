@@ -1,13 +1,21 @@
-import { readFileSync } from 'fs';
+import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
 import { join } from 'path';
 
-/**
- * Reads and parses a JSON file.
- * @param filePath - The relative path to the JSON file.
- * @returns The parsed JSON data.
- */
+
 export function readJsonFile(filePath: string): any {
   const fullPath = join(__dirname, filePath);
   const data = readFileSync(fullPath, 'utf-8');
   return JSON.parse(data);
+}
+
+
+export function createDirectory(dirPath: string): void {
+  if (!existsSync(dirPath)) {
+    mkdirSync(dirPath, { recursive: true });
+  }
+}
+
+
+export function writeFile(filePath: string, data: string | Buffer): void {
+  writeFileSync(filePath, data);
 }

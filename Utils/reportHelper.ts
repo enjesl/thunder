@@ -1,6 +1,11 @@
-import { formatDate } from '../utils/dateUtils';
+import { mkdirSync, existsSync } from 'fs';
 
-export function generateReport(reportName: string) {
-  const dateTime = formatDate(new Date());
-  return `./test-results/${reportName}-${dateTime}`;
+export function generateReport(reportBaseName: string): string {
+  const reportDir = `./test-results/${reportBaseName}`;
+
+  if (!existsSync(reportDir)) {
+    mkdirSync(reportDir, { recursive: true });
+  }
+
+  return reportDir;
 }
