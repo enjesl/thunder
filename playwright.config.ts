@@ -20,7 +20,7 @@ export default defineConfig({
     headless: false,
     viewport: null,
     video:  'on',
-    screenshot: 'only-on-failure',
+    screenshot: 'on',
   }
 
 });
